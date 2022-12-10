@@ -67,9 +67,12 @@ def hasil():
     hasil = sarcasm_detector.predict(padded).tolist()
     chance = hasil[0][0]
     persenan = round(chance*100,2)
+    persenan = str(persenan)+"%"
 
     return render_template('hasil.html', t_phrase=t_phrase, persenan=persenan)
 
+if __name__ == '__main__':
+    app.run(debug=False, threaded=True)
     
 # class mainHome(Resource):
 #     def get(self):
