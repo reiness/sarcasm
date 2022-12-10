@@ -5,17 +5,181 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+
+    <title>Alpro</title>
 </head>
 
 <body>
-    <h1>Masukkan Text Headlinemu</h1>
+    <!------------------------------------- Nav Bar-->
 
-    <form action="http://localhost:5000/hasil" method = "POST">
-        <input type="text" name="phrase"><br><br>
-        <button type="submit" value="submit">Submit</button>
-    </form>
 
+    <!-------------------------------------- Landing Page-->
+    <main class="main">
+        <!----------------------------------------- Home Page-->
+        <section class="home" id="home">
+            <div class="home_data">
+                <h1>Sarcasm Is <span> Everywehere </span></h1>
+                <h1>Let's Identify It!</h1>
+                <p>Sarcasm has become a social problem in the digital era. Netizens often express negative opinions in
+                    the form of satire. So, we are interested in developing a website that can be used to distinguish
+                    whether a sentence has elements of sarcasm or not.</p>
+                <a href="#IdentifyPage" class="button1 btn-hover color-11"> <span>Identify </span> </a>
+            </div>
+
+            <img src="{{url_for('static',filename='Asset 7.svg')}}" alt="">
+
+
+
+
+            <div class="custom-shape-divider-bottom-1670551510">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+
+        </section>
+
+        <section class="about">
+
+            <div class="row">
+
+                <div class="image">
+                    <img src="{{url_for('static',filename='main 2.svg')}}" alt="">
+                </div>
+
+                <div class="content">
+                    <h1>What Is </h1>
+                    <h2>Our website all about</h2>
+                    <p>Our website is foucusing on identify whether a headline contains elements of sarcasm or not (in
+                        percentage).</p>
+                    <p>We hope this project can help a lot of people to identify sarcasm in daily life.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class=" detector">
+            <div class="tampilan">
+                <div class="content2">
+                    <h1>Sarcasm Detector</h1>
+                    <h2>Input Your Headline</h2>
+                </div>
+                <form action="http://localhost:5000/" method="POST">
+                    <div class="inputbox">
+                        <input type="text" name="phrase" placeholder="input your headline here...">
+                    </div>
+
+                    <div class="submit-button">
+                        <button type="submit" value='submit' class="submit">Identify</button>
+                    </div>
+                    <!-- <div class="cancel-button"></div> -->
+            </div>
+
+
+            <div class="hasil">
+
+                
+                <div class="result">
+
+                    <h1> {{ translated }} </h1>
+
+                    {% if sarc <= 25  %} 
+                    <div class="level">
+                        
+                        <h2> {{ str_sarc | safe }} | Very Low</h2> <br>
+                        <h3> {{ vl | safe }} </h3>
+
+                        
+                    </div>
+                    {% elif 25 < sarc <= 50 %} 
+                    <div class="level">
+                        <h2> {{ str_sarc | safe }} | Mild</h2>
+                        <h3> {{ mi | safe }} </h3>
+                    </div>
+
+
+                    {% elif 50 < sarc <= 75 %} 
+                    <div class="level">
+                        <h2> {{ str_sarc | safe }} | Moderate</h2>
+                        <h3> {{ mo | safe }} </h3>
+                       
+                    </div>
+
+                    {% elif 75 < sarc <= 100 %} 
+                    <div class="level">
+                        <h2> {{ str_sarc | safe }} | High</h2>
+                        <h3> {{ h | safe}} </h3>
+                    </div>
+
+                    {% endif %}
+
+                </div>    
+            </div>
+
+
+            <div class="custom-shape-divider-top-1670552836">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+
+            <div class="custom-shape-divider-bottom-1670552997">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+            </div>
+
+
+
+
+        </section>
+
+
+        <section class="developer">
+            <h1 class="title-dev"> Developer!</h1>
+
+            <div class="container-dev">
+
+                <div class="card ">
+                    <img src="{{url_for('static',filename='dhok.png')}}" alt="">
+                    <h2>Ridho Pandhu Afrianto</h2>
+                    <p>desk singkat</p>
+                </div>
+
+                <div class="card ">
+                    <img src="{{url_for('static',filename='zy.png')}}" alt="">
+                    <h2>Dhia Alif Tajriyaani Azhar</h2>
+                    <p>desk singkat</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="custom-shape-divider-bottom-1670581305">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill"></path>
+                </svg>
+
+            </div>
+        </section>
+    </main>
 
 
 

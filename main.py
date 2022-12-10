@@ -1,4 +1,5 @@
 import json
+import random as random
 import pickle
 import tensorflow as tf
 import numpy as np
@@ -52,24 +53,55 @@ testing_padded = pad_sequences(testing_sequences, maxlen=max_length, padding=pad
 sentence = []
 ts._google.language_map
 
-@app.route('/')
+
+verylow = ["This headline has a very low indication of sarcasm", "The writer is serious about it", "Not sarcastic, but is it based on fact?"]
+mild = ["Mild level sarcasm has been detected","The writer had no clear intention while doing so"]
+moderate = ["Moderate level of sarcasm has been detected"," Maybe it is sarcastic, maybe it isn't..."]
+high = ["This headline is very sarcastic !", "Take it with a grain of salt"]
+
+        
+@app.route('/', methods=['GET','POST'])
 def index():
-    return render_template("index.html")
+    if request.method =='GET':
+        return render_template('index.html',  sarc=101)
 
-@app.route('/hasil', methods = ['POST'])
-def hasil():
-    phrase = request.form.get("phrase")
 
-    t_phrase = ts.google(phrase, from_language='id', to_language='en')
-    sentence.insert(0,t_phrase)
-    sequences = tokenizer.texts_to_sequences(sentence)
-    padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
-    hasil = sarcasm_detector.predict(padded).tolist()
-    chance = hasil[0][0]
-    persenan = round(chance*100,2)
-    persenan = str(persenan)+"%"
 
-    return render_template('hasil.html', t_phrase=t_phrase, persenan=persenan)
+    elif request.method == 'POST':    
+
+        phrase = request.form.get("phrase")
+        t_phrase = ts.google(phrase, from_language='id', to_language='en')
+        sentence.insert(0,t_phrase)
+        sequences = tokenizer.texts_to_sequences(sentence)
+        padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+        hasil = sarcasm_detector.predict(padded).tolist()
+        chance = hasil[0][0]
+        persenan = round(chance*100,2)
+        str_persenan = str(persenan)+"%"
+        return render_template('index.html', translated=t_phrase, sarc=persenan,  str_sarc =str_persenan , 
+        vl = random.choice(verylow),
+        mi = random.choice(mild),
+        mo = random.choice(moderate),
+        h = random.choice(high),
+        )
+
+# @app.route('/hasil', methods = ['POST'])
+# def hasil():
+#     phrase = request.form.get("phrase")
+
+#     t_phrase = ts.google(phrase, from_language='id', to_language='en')
+#     sentence.insert(0,t_phrase)
+#     sequences = tokenizer.texts_to_sequences(sentence)
+#     padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+#     hasil = sarcasm_detector.predict(padded).tolist()
+#     chance = hasil[0][0]
+#     persenan = round(chance*100,2)
+#     str_persenan = str(persenan)+"%"
+
+#     return render_template('index.html', t_phrase=t_phrase, persenan=persenan, str_persenan=str_persenan)
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=False, threaded=True)
