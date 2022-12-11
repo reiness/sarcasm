@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,181 +7,222 @@
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
     <link rel="stylesheet" href="static/style.css">
 
-    <title>Alpro</title>
-</head>
+    <script src="https://kit.fontawesome.com/a6ee498b4c.js" crossorigin="anonymous"></script>
 
+    <title>Detektip Sarkanto</title>
+    <link rel="icon" href="static\favicon.png" type="image/x-icon">
+</head>
 <body>
     <!------------------------------------- Nav Bar-->
-
-
+    <div class="nav">
+        <div class="nav-header">
+          <div class="nav-title">
+           <a href="#home">Detektip <span>Sarkanto</span></a>
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#detector">Identify</a>
+          <a href="#developer">Developer</a>
+        </div>
+      </div>
     <!-------------------------------------- Landing Page-->
     <main class="main">
         <!----------------------------------------- Home Page-->
         <section class="home" id="home">
             <div class="home_data">
-                <h1>Sarcasm Is <span> Everywehere </span></h1>
-                <h1>Let's Identify It!</h1>
-                <p>Sarcasm has become a social problem in the digital era. Netizens often express negative opinions in
-                    the form of satire. So, we are interested in developing a website that can be used to distinguish
-                    whether a sentence has elements of sarcasm or not.</p>
-                <a href="#IdentifyPage" class="button1 btn-hover color-11"> <span>Identify </span> </a>
+                <h1><span>Sarcasm</span> Is Everywhere</h1>
+                <h1>Let's <span>Identify</span> It!</h1>
+                <p>Di zaman yang sudah serba canggih ini, semua orang bisa mengakses internet hanya dengan sentuhan jari.  Saking mudahnya, mereka sampai lupa bahwa yang mereka baca di dalam internet belum tentu bisa diterima secara harfiah. Apalagi kalau masalah berita yang kesannya serius kan ya. Kadang kalian juga bingung kan, 'Berita ini beneran gak sih? Apa cuma candaan doang...'</p>
+                <p>Nah, Detektip Sarkanto ini bisa bantu kalian buat nyari tau sebenernya apa sih niat penulis waktu nulis berita itu. Apakah penulis serius bikin berita, atau cuma buat sarkas aja.</p>
+                <a href="#detector" class = "button1 btn-hover"> cobain yuk !</a>
             </div>
 
-            <img src="{{url_for('static',filename='Asset 7.svg')}}" alt="">
-
-
-
+        <img src="{{url_for('static', filename='detective.svg')}}" alt="">
+            
+         
+            
 
             <div class="custom-shape-divider-bottom-1670551510">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
                 </svg>
             </div>
 
         </section>
 
-        <section class="about">
+        <section class="about" id="about" name="about">
 
             <div class="row">
-
-                <div class="image">
-                    <img src="{{url_for('static',filename='main 2.svg')}}" alt="">
-                </div>
-
-                <div class="content">
-                    <h1>What Is </h1>
-                    <h2>Our website all about</h2>
-                    <p>Our website is foucusing on identify whether a headline contains elements of sarcasm or not (in
-                        percentage).</p>
-                    <p>We hope this project can help a lot of people to identify sarcasm in daily life.</p>
-                </div>
+            
+            <div class ="image">  
+                 <img src="{{url_for('static', filename='main 2.svg')}}" alt="">
+            </div> 
+            
+            <div class = "content">
+                <h1>What Is </h1>
+                <h2>Our website all about</h2>
+                <p>Detektip Sarkanto ini adalah program untuk medeteksi tingkat sarkasme dari suatu judul berita. Dia menggunakan machine learning yang belajar dari puluhan ribu judul.</p>
+                <p>Cara manggil Detektip Sarkanto ini gampang banget kok. Kalian cari aja judul artikel yang mau dicari tau, terus tinggal copas aja di input box bawah ini.</p>
+                <p>Kalau artikelnya dalam bahasa Indonesia gapapa kok, Pak Sarkanto ini jago bahasa Inggris sama bahasa Indonesia loh. Setelah di-copas tinggal klik Identify atau bisa juga tekan Enter. Udah deh keluar hasilnya dalam bentuk persenan. Oiya, pilihan untuk memercayai persenan ini kembali lagi ke tangan user yaaa..</p>
+            </div>
 
             </div>
         </section>
 
 
-        <section class=" detector">
-            <div class="tampilan">
+        <section class=" detector" id="detector">
+
+            <!-- <div class="pembeda" style="display: flex; flex-direction:row"> -->
+            <div class="tampilan" style="width: 100%,height: 500px">
                 <div class="content2">
                     <h1>Sarcasm Detector</h1>
                     <h2>Input Your Headline</h2>
                 </div>
-                <form action="http://localhost:5000/" method="POST">
-                    <div class="inputbox">
-                        <input type="text" name="phrase" placeholder="input your headline here...">
-                    </div>
 
-                    <div class="submit-button">
-                        <button type="submit" value='submit' class="submit">Identify</button>
-                    </div>
-                    <!-- <div class="cancel-button"></div> -->
-            </div>
+            <div id="something">
+                {% if scroll %}
+                <script>
+                    document.getElementById('{{ scroll }}').scrollIntoView();
+                </script>
+                {% endif %}
+            </div>
+            <form action="http://localhost:5000" method="POST">
+                <div class="inputbox">
+                    <input type="text" name="phrase" placeholder="input your headline here...">
+                </div>
 
+                <div class="submit-button">
+                    <button type="submit" value ='submit' class="button1 submit">Identify</button>
+                </div>
 
-            <div class="hasil">
+                <div class="hasil" style="padding-top: 3rem;">
 
                 
-                <div class="result">
+                    <div class="result " style="align-content:center ; align-items: center; align-text:center">
+    
+                        <h4 style="font-size: 20px; color: white; padding-bottom: 1rem;"> {{ translated }} </h4>
+    
+                        {% if sarc <= 25  %} 
+                        <div class="level">
+                            
+                            <h2 style="font-size: 50px; color: white; text-align: center; padding-bottom: .7rem"> {{ str_sarc  }} | Very Low</h2> <br>
+                            <h3 style="font-size: 30px; color: white; padding-bottom: .7rem"> {{ vl  }} </h3>
+    
+                            
+                        </div>
+                        {% elif 25 < sarc <= 50 %} 
+                        <div class="level">
+                            <h2 style="font-size: 50px; color: white; text-align: center; padding-bottom: .7rem"> {{ str_sarc  }} | Mild</h2>
+                            <h3 style="font-size: 30px; color: white; padding-bottom: .7rem"> {{ mi }} </h3>
+                        </div>
+    
+    
+                        {% elif 50 < sarc <= 75 %} 
+                        <div class="level">
+                            <h2 style="font-size: 50px; color: white; text-align: center; padding-bottom: .7rem"> {{ str_sarc  }} | Moderate</h2>
+                            <h3 style="font-size: 30px; color: white; padding-bottom: .7rem"> {{ mo }} </h3>
+                           
+                        </div>
+    
+                        {% elif 75 < sarc <= 100 %} 
+                        <div class="level">
+                            <h2 style="font-size: 50px; color: white; text-align: center; padding-bottom: .7rem"> {{ str_sarc }} | High</h2>
+                            <h3 style="font-size: 25px; color: white; padding-bottom: .7rem"> {{ h }} </h3>
+                        </div>
+    
+                        {% endif %}
+    
+                    </div>    
 
-                    <h1> {{ translated }} </h1>
-
-                    {% if sarc <= 25  %} 
-                    <div class="level">
-                        
-                        <h2> {{ str_sarc | safe }} | Very Low</h2> <br>
-                        <h3> {{ vl | safe }} </h3>
-
-                        
-                    </div>
-                    {% elif 25 < sarc <= 50 %} 
-                    <div class="level">
-                        <h2> {{ str_sarc | safe }} | Mild</h2>
-                        <h3> {{ mi | safe }} </h3>
-                    </div>
-
-
-                    {% elif 50 < sarc <= 75 %} 
-                    <div class="level">
-                        <h2> {{ str_sarc | safe }} | Moderate</h2>
-                        <h3> {{ mo | safe }} </h3>
-                       
-                    </div>
-
-                    {% elif 75 < sarc <= 100 %} 
-                    <div class="level">
-                        <h2> {{ str_sarc | safe }} | High</h2>
-                        <h3> {{ h | safe}} </h3>
-                    </div>
-
-                    {% endif %}
-
-                </div>    
             </div>
 
+            
+            </div>
+
+
+            
+            </div>
+
+
+        </div>
 
             <div class="custom-shape-divider-top-1670552836">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
                 </svg>
             </div>
 
-            <div class="custom-shape-divider-bottom-1670552997">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                        class="shape-fill"></path>
-                </svg>
+            <div class="custom-shape-divider-bottom-1670661192">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1309 166"><defs><style>.cls-1{fill:#fff;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:url(#linear-gradient);}</style><clipPath id="clip-path"><path class="cls-1" d="M296.14,0c35.95,0,57.11,21.42,57.11,59.43s-21.16,60.35-57.11,60.35H250.41V0ZM275.47,99h17.68c22.42,0,34.54-13.61,34.54-39.51,0-25.07-12.46-38.85-34.54-38.85H275.47Zm173-6.48c-2.65,17.44-18.59,29.14-40.59,29.14-27.39,0-43.83-17.52-43.83-46S380.64,28.89,407,28.89c25.9,0,42.25,17.51,42.25,44.57v7.39H387.87v1.49c0,12.7,8.05,21.42,20.42,21.42,8.88,0,15.68-4.4,17.93-11.21ZM388.12,66h37.76c-.49-11.37-7.88-19.17-18.67-19.17C396.58,46.82,389,54.87,388.12,66Zm123.1,53.79h-27.4L453,30.8h26l18.51,67.56h.5L516.45,30.8h25.31ZM628.84,92.55c-2.66,17.44-18.6,29.14-40.59,29.14-27.4,0-43.83-17.52-43.83-46S561,28.89,587.33,28.89c25.9,0,42.25,17.51,42.25,44.57v7.39H568.24v1.49c0,12.7,8,21.42,20.42,21.42,8.88,0,15.69-4.4,17.93-11.21ZM568.49,66h37.77c-.5-11.37-7.89-19.17-18.68-19.17C577,46.82,569.32,54.87,568.49,66ZM642.62,0h24.24V119.78H642.62ZM680,75.21c0-28.81,17.43-46.32,44.08-46.32s44.07,17.43,44.07,46.32c0,29.3-17.18,46.48-44.07,46.48S680,104.42,680,75.21Zm63.5.08c0-17.68-7.64-27.89-19.42-27.89s-19.51,10.21-19.51,27.89c0,17.84,7.55,27.89,19.51,27.89S743.47,93.13,743.47,75.29Zm125.51,0c0,28.64-13.78,45.9-36,45.9-13,0-22.91-6.31-27.64-16.35h-.5v44H780.58V30.8h23.9V46.32h.5c4.81-10.46,14.69-16.94,27.56-16.94C855.12,29.38,869,46.57,869,75.29Zm-24.82,0c0-16.11-7.64-26.48-19.76-26.48-11.87,0-19.67,10.54-19.67,26.48,0,16.1,7.8,26.39,19.67,26.39C836.52,101.68,844.16,91.47,844.16,75.29ZM962.61,92.55C960,110,944,121.69,922,121.69c-27.39,0-43.83-17.52-43.83-46s16.6-46.81,42.92-46.81c25.9,0,42.25,17.51,42.25,44.57v7.39H902v1.49c0,12.7,8.05,21.42,20.42,21.42,8.88,0,15.68-4.4,17.93-11.21ZM902.27,66H940c-.49-11.37-7.88-19.17-18.67-19.17C910.73,46.82,903.1,54.87,902.27,66ZM975.81,30.8h23.41v16h.5c3.15-11.29,10.7-17.44,21.16-17.44a24.54,24.54,0,0,1,6.89.92V51.63a24.93,24.93,0,0,0-8.8-1.41c-12,0-18.92,7.3-18.92,19.84v49.72H975.81Zm67.32,78c0-7.3,6-13,13.53-13s13.53,5.73,13.53,13-6,13-13.53,13S1043.13,116.13,1043.13,108.82ZM1069.11,0l-2,80.35H1046.2l-2-80.35Z"/></clipPath><linearGradient id="linear-gradient" x1="823.36" y1="446.38" x2="456" y2="-189.92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#800835"/><stop offset="1" stop-color="#ee4540"/></linearGradient></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M1075.19,138.83C989,118,898.61,77,811.41,60.19c-89.74-17.34-183.33-16.33-273.2.39-63.1,11.73-124.36,31.07-187.63,41.86A710.84,710.84,0,0,1,0,73.35V166H1309V141.8C1235,164.92,1151.6,157.31,1075.19,138.83Z"/><path class="cls-1" d="M296.14,0c35.95,0,57.11,21.42,57.11,59.43s-21.16,60.35-57.11,60.35H250.41V0ZM275.47,99h17.68c22.42,0,34.54-13.61,34.54-39.51,0-25.07-12.46-38.85-34.54-38.85H275.47Zm173-6.48c-2.65,17.44-18.59,29.14-40.59,29.14-27.39,0-43.83-17.52-43.83-46S380.64,28.89,407,28.89c25.9,0,42.25,17.51,42.25,44.57v7.39H387.87v1.49c0,12.7,8.05,21.42,20.42,21.42,8.88,0,15.68-4.4,17.93-11.21ZM388.12,66h37.76c-.49-11.37-7.88-19.17-18.67-19.17C396.58,46.82,389,54.87,388.12,66Zm123.1,53.79h-27.4L453,30.8h26l18.51,67.56h.5L516.45,30.8h25.31ZM628.84,92.55c-2.66,17.44-18.6,29.14-40.59,29.14-27.4,0-43.83-17.52-43.83-46S561,28.89,587.33,28.89c25.9,0,42.25,17.51,42.25,44.57v7.39H568.24v1.49c0,12.7,8,21.42,20.42,21.42,8.88,0,15.69-4.4,17.93-11.21ZM568.49,66h37.77c-.5-11.37-7.89-19.17-18.68-19.17C577,46.82,569.32,54.87,568.49,66ZM642.62,0h24.24V119.78H642.62ZM680,75.21c0-28.81,17.43-46.32,44.08-46.32s44.07,17.43,44.07,46.32c0,29.3-17.18,46.48-44.07,46.48S680,104.42,680,75.21Zm63.5.08c0-17.68-7.64-27.89-19.42-27.89s-19.51,10.21-19.51,27.89c0,17.84,7.55,27.89,19.51,27.89S743.47,93.13,743.47,75.29Zm125.51,0c0,28.64-13.78,45.9-36,45.9-13,0-22.91-6.31-27.64-16.35h-.5v44H780.58V30.8h23.9V46.32h.5c4.81-10.46,14.69-16.94,27.56-16.94C855.12,29.38,869,46.57,869,75.29Zm-24.82,0c0-16.11-7.64-26.48-19.76-26.48-11.87,0-19.67,10.54-19.67,26.48,0,16.1,7.8,26.39,19.67,26.39C836.52,101.68,844.16,91.47,844.16,75.29ZM962.61,92.55C960,110,944,121.69,922,121.69c-27.39,0-43.83-17.52-43.83-46s16.6-46.81,42.92-46.81c25.9,0,42.25,17.51,42.25,44.57v7.39H902v1.49c0,12.7,8.05,21.42,20.42,21.42,8.88,0,15.68-4.4,17.93-11.21ZM902.27,66H940c-.49-11.37-7.88-19.17-18.67-19.17C910.73,46.82,903.1,54.87,902.27,66ZM975.81,30.8h23.41v16h.5c3.15-11.29,10.7-17.44,21.16-17.44a24.54,24.54,0,0,1,6.89.92V51.63a24.93,24.93,0,0,0-8.8-1.41c-12,0-18.92,7.3-18.92,19.84v49.72H975.81Zm67.32,78c0-7.3,6-13,13.53-13s13.53,5.73,13.53,13-6,13-13.53,13S1043.13,116.13,1043.13,108.82ZM1069.11,0l-2,80.35H1046.2l-2-80.35Z"/><g class="cls-2"><path class="cls-3" d="M1075.19,138.83C989,118,898.61,77,811.41,60.19c-89.74-17.34-183.33-16.33-273.2.39-63.1,11.73-124.36,31.07-187.63,41.86A710.84,710.84,0,0,1,0,73.35V166H1309V141.8C1235,164.92,1151.6,157.31,1075.19,138.83Z"/></g></g></g></svg>
             </div>
-            </div>
-
-
-
 
         </section>
 
 
-        <section class="developer">
-            <h1 class="title-dev"> Developer!</h1>
+        <section class = "developer" id="developer">
 
+            <div class="main-container">
             <div class="container-dev">
-
-                <div class="card ">
-                    <img src="{{url_for('static',filename='dhok.png')}}" alt="">
-                    <h2>Ridho Pandhu Afrianto</h2>
-                    <p>desk singkat</p>
-                </div>
-
-                <div class="card ">
-                    <img src="{{url_for('static',filename='zy.png')}}" alt="">
+            
+                <div class ="card border-0">  
+                     <img src="{{url_for('static', filename='dhok.png')}}" alt="">
+                     <h2>Ridho Pandhu Afrianto</h2>
+                     <p><i>"Lakukan karena itu harus, bukan karena disuruh"</i></p>
+                    <div calass ="sosmed">
+                        <ul>
+                            <li>
+                              <a href="https://open.spotify.com/user/31lfeg67yvjbwld6eujj4g2llxi4?si=2ed5dbe83b1f4e00"><i class="fa-brands fa-spotify icon"></i></a>
+                            </li>
+                            <li>
+                              <a href="https://twitter.com/reisaraaa?s=20&t=9jlUgCHLx5nuzJ6KoL43Zg"><i class="fab fa-twitter icon"></i></a>
+                            </li>
+                            <li>
+                              <a href="https://www.instagram.com/ridhopandhu/"><i class="fa-brands fa-instagram icon"></i></a></li>
+                            <li>
+                              <a href="https://github.com/reiness"><i class="fa-brands fa-github icon"></i></a></li>
+                          </ul>
+                    </div>
+                </div> 
+                
+                <div class = "card border-0">
+                    <img src="{{url_for('static', filename='zy.png')}}" alt="">
                     <h2>Dhia Alif Tajriyaani Azhar</h2>
-                    <p>desk singkat</p>
+                    <p><i>"I turn the music up I got my records on, I shut the world outside until the lights come on"</i> - Every Teardrop is a Waterfall</p>
+  <div calass ="sosmed">
+                        <ul>
+                            <li>
+                              <a href="https://open.spotify.com/user/10wzj43honaalxp28p4c9uyyp?si=ade12cfb4fb74f78"><i class="fa-brands fa-spotify icon"></i></a>
+                            </li>
+                            <li>
+                              <a href="https://twitter.com/zzybeanie"><i class="fab fa-twitter icon"></i></a>
+                            </li>
+                            <li>
+                              <a href="http://instagram.com/azhr_alif"><i class="fa-brands fa-instagram icon"></i></a></li>
+                            <li>
+                              <a href="https://github.com/Zzybeanie"><i class="fa-brands fa-github icon"></i></a></li>
+                          </ul>
+                    </div>
                 </div>
-
+    
             </div>
+        </div>
 
 
 
-            <div class="custom-shape-divider-bottom-1670581305">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                        class="shape-fill"></path>
-                </svg>
 
-            </div>
         </section>
-    </main>
+    </main>    
 
-
-
+    
 </body>
-
 </html>

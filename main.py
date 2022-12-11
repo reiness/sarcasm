@@ -54,51 +54,42 @@ sentence = []
 ts._google.language_map
 
 
-verylow = ["This headline has a very low indication of sarcasm", "The writer is serious about it", "Not sarcastic, but is it based on fact?"]
-mild = ["Mild level sarcasm has been detected","The writer had no clear intention while doing so"]
-moderate = ["Moderate level of sarcasm has been detected"," Maybe it is sarcastic, maybe it isn't..."]
-high = ["This headline is very sarcastic !", "Take it with a grain of salt"]
+verylow = ["This headline has a very low indication of sarcasm", "The writer is serious about it", "Not sarcastic, but is it based on fact?","Wong iki serius banget rek..","Ojok dianggep guyon","Aman Bro !"]
+mild = ["Mild level sarcasm has been detected","The writer had no clear intention while doing so","Niat penulis tidak teridentifikasi dengan jelas","Mungkin beliau tidak berbakat menjadi pesarkas handal"]
+moderate = ["Moderate level of sarcasm has been detected"," Maybe it is sarcastic, maybe it isn't...","Mboh iyo, Mboh gak","Menurut kalian gimana?","Lolololo, awass ati-ati.."]
+high = ["This headline is very sarcastic !", "Take it with a grain of salt","Hati-hati di Internet","Ojok dipikir...","Bawa santai aja","Pesarkas Handal","Awas digigit Pak Sarkanto"]
 
         
 @app.route('/', methods=['GET','POST'])
 def index():
     if request.method =='GET':
-        return render_template('index.html',  sarc=101)
+        return render_template('index.html',sarc=101)
 
 
 
     elif request.method == 'POST':    
-
+        
         phrase = request.form.get("phrase")
-        t_phrase = ts.google(phrase, from_language='id', to_language='en')
-        sentence.insert(0,t_phrase)
-        sequences = tokenizer.texts_to_sequences(sentence)
-        padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
-        hasil = sarcasm_detector.predict(padded).tolist()
-        chance = hasil[0][0]
-        persenan = round(chance*100,2)
-        str_persenan = str(persenan)+"%"
-        return render_template('index.html', translated=t_phrase, sarc=persenan,  str_sarc =str_persenan , 
-        vl = random.choice(verylow),
-        mi = random.choice(mild),
-        mo = random.choice(moderate),
-        h = random.choice(high),
-        )
 
-# @app.route('/hasil', methods = ['POST'])
-# def hasil():
-#     phrase = request.form.get("phrase")
+        if phrase == "":
+            return render_template('index.html', sarc=101)
+        
+        else:
+            t_phrase = ts.google(phrase, from_language='id', to_language='en')
+            sentence.insert(0,t_phrase)
+            sequences = tokenizer.texts_to_sequences(sentence)
+            padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+            hasil = sarcasm_detector.predict(padded).tolist()
+            chance = hasil[0][0]
+            persenan = round(chance*100,2)
+            str_persenan = str(persenan)+"%"
+            return render_template('index.html', translated=t_phrase, sarc=persenan,  str_sarc =str_persenan , 
+            vl = random.choice(verylow),
+            mi = random.choice(mild),
+            mo = random.choice(moderate),
+            h = random.choice(high),
+            scroll='something')
 
-#     t_phrase = ts.google(phrase, from_language='id', to_language='en')
-#     sentence.insert(0,t_phrase)
-#     sequences = tokenizer.texts_to_sequences(sentence)
-#     padded = pad_sequences(sequences, maxlen=max_length, padding=padding_type, truncating=trunc_type)
-#     hasil = sarcasm_detector.predict(padded).tolist()
-#     chance = hasil[0][0]
-#     persenan = round(chance*100,2)
-#     str_persenan = str(persenan)+"%"
-
-#     return render_template('index.html', t_phrase=t_phrase, persenan=persenan, str_persenan=str_persenan)
 
 
 
@@ -106,8 +97,3 @@ def index():
 if __name__ == '__main__':
     app.run(debug=False, threaded=True)
     
-# class mainHome(Resource):
-#     def get(self):
-#         return render_template('index.html')
-
-# api.add_resource(mainHome,'/')
