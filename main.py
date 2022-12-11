@@ -1,7 +1,7 @@
 import json
 import random as random
-import pickle
 import tensorflow as tf
+from tensorflow import keras
 import numpy as np
 import translators as ts
 from flask import Flask, request, render_template, redirect, url_for
@@ -13,8 +13,10 @@ app = Flask(__name__)
 api = Api(app)
 
 
-with open('sarcasm_pickle','rb') as r:
-    sarcasm_detector = pickle.load(r)
+# with open('sarcasm_pickle','rb') as r:
+#     sarcasm_detector = pickle.load(r)
+
+sarcasm_detector = keras.models.load_model('sarcasm-model5')
 
 vocab_size = 10000
 embedding_dim = 16
@@ -92,5 +94,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, threaded=True)
+    app.run(host="0.0.0.0",debug=False)
     
