@@ -60,7 +60,7 @@ moderate = ["Moderate level of sarcasm has been detected"," Maybe it is sarcasti
 high = ["This headline is very sarcastic !", "Take it with a grain of salt","Hati-hati di Internet","Ojok dipikir...","Bawa santai aja","Pesarkas Handal","Awas digigit Pak Sarkanto"]
 
         
-@app.route('/', methods=['GET','POST'])
+@app.route('/detektifsarkanto', methods=['GET','POST'])
 def index():
     if request.method =='GET':
         return render_template('index.html',sarc=101)
@@ -89,9 +89,6 @@ def index():
             mo = random.choice(moderate),
             h = random.choice(high),
             scroll='something')
-
-
-
 
 
 if __name__ == '__main__':
