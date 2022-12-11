@@ -98,7 +98,7 @@
             </div>
             <form action="http://localhost:5000" method="POST">
                 <div class="inputbox">
-                    <input type="text" name="phrase" placeholder="input your headline here...">
+                    <input maxlength ="80" type="text" name="phrase" placeholder="input your headline here...">
                 </div>
 
                 <div class="submit-button">
@@ -110,7 +110,8 @@
                 
                     <div class="result " style="align-content:center ; align-items: center; align-text:center">
     
-                        <h4 style="font-size: 20px; color: white; padding-bottom: 1rem;"> {{ translated }} </h4>
+                        <h4 id="judul" style="font-size: 20px; color: white; padding-bottom: 1rem; width: 550px;"
+                        scripts> {{ translated }} </h4>
     
                         {% if sarc <= 25  %} 
                         <div class="level">
@@ -221,8 +222,13 @@
 
 
         </section>
-    </main>    
+    </main>
+    
+    <script>
+        document.getElementById('judul').innerHTML = long_string.replace(/(.{75})/g, "$1<br>");
 
+    </script>
+    
     
 </body>
 </html>
